@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Radar de Eventos Cercanos</string>
+    <string name="radar_title">Radar de Eventos</string>
+    <string name="radar_subtitle">Detección BLE de asistentes y balizas por proximidad</string>
+    <string name="scanning_active">Buscando asistentes cercanos…</string>
+    <string name="scanning_paused">Escáner pausado</string>
+    <string name="filter_all">Todos</string>
+    <string name="filter_tech">Tecnología / Dev</string>
+    <string name="filter_design">Diseño / UX</string>
+    <string name="filter_founders">Fundadores</string>
+    <string name="filter_investors">Inversores (VC)</string>
+    <string name="filter_speakers">Ponentes</string>
+    <string name="filter_beacons">Balizas del Evento</string>
+    <string name="exchange_contact">Intercambiar Pase</string>
+    <string name="wave_hello">Saludar 👋</string>
+    <string name="icebreakers">Temas para Romper el Hielo</string>
+    <string name="proximity_immediate">Inmediato (&lt;1.5m)</string>
+    <string name="proximity_near">Cercano (1.5–4m)</string>
+    <string name="proximity_far">Lejano (4–10m)</string>
+    <string name="proximity_zone">Zona (10m+)</string>
+    <string name="tab_radar">Radar</string>
+    <string name="tab_attendees">Gente</string>
+    <string name="tab_sessions">Agenda</string>
+    <string name="tab_connections">Contactos</string>
+    <string name="tab_badge">Mi Pase</string>
+</resources>

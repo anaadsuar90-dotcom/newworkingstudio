@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Nearby Event Radar</string>
+    <string name="radar_title">Event Radar</string>
+    <string name="radar_subtitle">Proximity BLE attendee &amp; beacon discovery</string>
+    <string name="scanning_active">Scanning for nearby attendees…</string>
+    <string name="scanning_paused">Scanner paused</string>
+    <string name="filter_all">All</string>
+    <string name="filter_tech">Tech / Dev</string>
+    <string name="filter_design">Design / UX</string>
+    <string name="filter_founders">Founders</string>
+    <string name="filter_investors">Investors</string>
+    <string name="filter_speakers">Speakers</string>
+    <string name="filter_beacons">Venue Beacons</string>
+    <string name="exchange_contact">Exchange Badge</string>
+    <string name="wave_hello">Send Wave 👋</string>
+    <string name="icebreakers">Icebreakers</string>
+    <string name="proximity_immediate">Immediate (&lt;1.5m)</string>
+    <string name="proximity_near">Near (1.5–4m)</string>
+    <string name="proximity_far">Far (4–10m)</string>
+    <string name="proximity_zone">Zone (10m+)</string>
+    <string name="tab_radar">Radar</string>
+    <string name="tab_attendees">People</string>
+    <string name="tab_sessions">Sessions</string>
+    <string name="tab_connections">Connections</string>
+    <string name="tab_badge">My Badge</string>
+</resources>

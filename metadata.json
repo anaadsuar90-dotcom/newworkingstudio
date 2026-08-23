@@ -1,0 +1,6 @@
+{
+  "name": "Nearby Event Radar",
+  "description": "Proximity networking and attendee radar app using Bluetooth Low Energy (BLE) for conferences and events with real-time sonar, contact exchange, and schedule.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

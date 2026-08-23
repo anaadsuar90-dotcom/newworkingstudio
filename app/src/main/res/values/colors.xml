@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_dark">#0F172A</color>
+    <color name="primary_blue">#0284C7</color>
+    <color name="accent_cyan">#06B6D4</color>
+    <color name="accent_teal">#10B981</color>
+    <color name="accent_purple">#8B5CF6</color>
+    <color name="radar_grid">#1E293B</color>
+</resources>
