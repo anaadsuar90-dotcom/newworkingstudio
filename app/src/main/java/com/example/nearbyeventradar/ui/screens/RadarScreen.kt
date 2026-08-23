@@ -445,7 +445,7 @@ fun RadarScreen(
                                             color = SoftCoral.copy(alpha = 0.15f)
                                         ) {
                                             Text(
-                                                text = String.format("%.1fm", attendee.distanceMeters),
+                                                text = attendee.proximityText(),
                                                 color = SoftCoralDark,
                                                 fontWeight = FontWeight.Bold,
                                                 fontSize = 12.sp,
@@ -489,4 +489,3 @@ fun RadarScreen(
         }
     }
 }
-

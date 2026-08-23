@@ -205,7 +205,7 @@ fun AttendeeDetailSheet(
                     Text(text = "DISTANCE", color = WarmGrayMuted, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     Spacer(modifier = Modifier.height(3.dp))
                     Text(
-                        text = String.format("%.1f m", attendee.distanceMeters),
+                        text = attendee.proximityText(),
                         color = SoftCoralDark,
                         fontWeight = FontWeight.Bold,
                         fontSize = 16.sp
@@ -467,4 +467,3 @@ fun AttendeeDetailSheet(
         }
     }
 }
-

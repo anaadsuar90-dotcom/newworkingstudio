@@ -77,7 +77,5 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coil.compose)
-    implementation(libs.play.services.nearby)
-
     debugImplementation(libs.androidx.compose.ui.tooling)
 }

@@ -111,12 +111,11 @@ fun MainAppScreen(viewModel: RadarViewModel) {
 
     val snackbarHostState = remember { SnackbarHostState() }
 
-    // Request permissions dynamically for Nearby Connections & BLE
+    // Permissions are requested only when the app is opened. Radar stays off until
+    // the user explicitly activates it from the UI.
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions()
-    ) { _ ->
-        viewModel.startBleScanner()
-    }
+    ) { _ -> }
 
     LaunchedEffect(Unit) {
         val permissionsToRequest = mutableListOf<String>()
@@ -125,10 +124,9 @@ fun MainAppScreen(viewModel: RadarViewModel) {
             permissionsToRequest.add(Manifest.permission.BLUETOOTH_ADVERTISE)
             permissionsToRequest.add(Manifest.permission.BLUETOOTH_CONNECT)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            permissionsToRequest.add(Manifest.permission.NEARBY_WIFI_DEVICES)
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
+            permissionsToRequest.add(Manifest.permission.ACCESS_FINE_LOCATION)
         }
-        permissionsToRequest.add(Manifest.permission.ACCESS_FINE_LOCATION)
         permissionLauncher.launch(permissionsToRequest.toTypedArray())
     }
 
@@ -326,4 +324,3 @@ fun MainAppScreen(viewModel: RadarViewModel) {
         }
     }
 }
-

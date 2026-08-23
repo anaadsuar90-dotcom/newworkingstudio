@@ -337,7 +337,7 @@ fun AttendeesListScreen(
                                     )
                                     Spacer(modifier = Modifier.width(3.dp))
                                     Text(
-                                        text = String.format("%.1fm", attendee.distanceMeters),
+                                        text = attendee.proximityText(),
                                         color = SoftCoralDark,
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.Bold
@@ -459,4 +459,3 @@ fun AttendeesListScreen(
         }
     }
 }
-

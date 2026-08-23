@@ -54,6 +54,13 @@ data class Attendee(
     val beaconZone: String? = null,
     val matchScore: Int = 85
 ) {
+    /** RSSI provides a broad proximity band only; it must never be presented as an exact distance. */
+    fun proximityText(): String = when {
+        rssi >= -58 -> "Muy cerca"
+        rssi >= -72 -> "Cerca"
+        else -> "A cierta distancia"
+    }
+
     fun getProximityZone(): ProximityZone {
         return when {
             distanceMeters <= 1.5f -> ProximityZone.IMMEDIATE

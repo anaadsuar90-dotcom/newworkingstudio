@@ -1,21 +1,35 @@
-# Nearby Event Radar (Android)
+# Nearby Radar — MVP BLE Android
 
-**Nearby Event Radar** is an Android proximity networking application built with **Jetpack Compose**, **Bluetooth Low Energy (BLE)** scanning & broadcasting, and **Room Database** persistence for conferences, summits, and meetups.
+Aplicación Android nativa en Kotlin y Jetpack Compose para comprobar, primero con dos móviles reales, el núcleo de detección BLE de Nearby Radar.
 
-## ✨ Core Features
+## Estado de esta iteración
 
-- **Interactive Sonar Radar View**: Real-time rotating sweeping radar beam with range rings (5m, 15m, 30m), compass axes, and interactive pulsing blips for nearby attendees, speakers, investors, and venue beacons.
-- **Proximity Calculations & Signal Estimator**: Live RSSI signal analysis and logarithmic path-loss distance estimation.
-- **Smart Attendee Discovery**: Category color badges (Developers, Designers, Founders, Investors, Speakers, Organizers, Sponsors, Beacons), match affinity scores, and shared interest tags.
-- **Contact & Badge Exchange**: Instant offline digital badge swap, in-event peer chat, and icebreaker suggestions.
-- **Venue Zones & Event Schedule**: Live session schedule with speaker details, venue beacons (Main Stage, Coffee Lounge), and crowd density tracking.
-- **My Digital Badge & Ghost Mode**: Customizable attendee pass with holographic QR matrix, BLE ID, and visibility modes (Broadcasting, In Conversation, Attending Talk, Ghost Mode).
-- **Offline Persistence**: Room database caching for saved contacts, bookmarks, chat history, and personal profile.
+- Radar desactivado al iniciar.
+- BLE advertising y scanning nativos de Android, sin Bluetooth clásico, emparejamiento ni conexiones GATT.
+- El anuncio contiene solo un UUID de servicio propio y un identificador aleatorio temporal que rota cada 15 minutos.
+- El escáner ignora cualquier anuncio que no pertenezca al protocolo Nearby Radar.
+- No se envían ni se leen nombres, MAC, fotografías, teléfonos, correo, perfiles ni redes sociales por BLE.
+- Cada resultado muestra RSSI suavizado y una banda de proximidad: **Muy cerca**, **Cerca** o **A cierta distancia**. No se presenta como distancia exacta.
+- Los resultados desaparecen tras 25 segundos sin recibir un anuncio válido.
 
-## 🛠️ Architecture & Tech Stack
+Todavía no hay backend, perfiles compartidos, chat, intercambio de contactos ni notificaciones en segundo plano. Las pantallas generadas por IA se conservan como base visual, pero el radar parte vacío: nunca debe inventar asistentes, saludos o coincidencias.
 
-- **Framework**: Android SDK 35, Jetpack Compose, Material 3
-- **Language**: Kotlin 2.0.21 (Coroutines & StateFlow)
-- **Local Database**: AndroidX Room with KSP
-- **Hardware Integration**: Android Bluetooth LE (`BluetoothLeScanner` / `BluetoothLeAdvertiser`) + Smart Proximity Simulation engine
-- **Adaptive Launcher**: Modern Material You adaptive vector & raster icon
+## Permisos
+
+- Android 12 o superior: `BLUETOOTH_SCAN`, `BLUETOOTH_ADVERTISE` y `BLUETOOTH_CONNECT`.
+- Android 6 a 11: ubicación precisa solo porque Android la exige para BLE scanning en esas versiones.
+
+No se solicita Internet, Wi‑Fi, contactos, cámara ni ubicación en Android 12+.
+
+## Prueba con dos móviles
+
+1. Abre el proyecto en Android Studio y espera a que Gradle sincronice.
+2. Conecta cada Android con un cable USB de datos, activa **Opciones de desarrollador → Depuración USB** y acepta el aviso RSA.
+3. Ejecuta la variante `debug` en ambos dispositivos físicos. El emulador no permite validar advertising/scanning BLE real.
+4. En el móvil A activa la visibilidad/radar para iniciar advertising.
+5. En el móvil B activa el escaneo. Debe aparecer un único “Usuario Nearby” con un ID temporal, RSSI y banda de proximidad.
+6. Acerca y aleja los teléfonos para observar que cambia RSSI y la banda. Las paredes, el cuerpo y los modelos de móvil afectan mucho a la señal.
+
+## Privacidad
+
+El radar es siempre voluntario. Esta fase solo funciona mientras la app está abierta y no permite rastreo persistente. La siguiente fase debe diseñar de forma explícita el consentimiento para revelar cualquier perfil o enviar un saludo.

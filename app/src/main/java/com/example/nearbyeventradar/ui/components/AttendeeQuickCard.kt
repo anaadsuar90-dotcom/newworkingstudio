@@ -186,7 +186,7 @@ fun AttendeeQuickCard(
                         )
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
-                            text = strings.distanceAway(attendee.distanceMeters),
+                            text = attendee.proximityText(),
                             color = SoftCoralDark,
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold
@@ -316,4 +316,3 @@ fun AttendeeQuickCard(
         }
     }
 }
-
